@@ -1,0 +1,77 @@
+Theory
+1. Solidity: Solidity is a high-level programming language used to develop smart contracts on the Ethereum blockchain.
+
+2. Structure: A structure is a user-defined data type used to group different types of variables under a single name.
+
+3. Array: An array is a collection of elements of the same data type used to store multiple values.
+
+4. Fallback Function: A fallback function is a special function that executes when a function call does not match any existing function in the smart contract.
+
+5. Gas: Gas is the unit used to measure the computational work required to execute transactions on Ethereum.
+
+Algorithm
+1. Start.
+2. Open Remix IDE and create a Solidity file.
+3. Declare the Solidity compiler version.
+4. Create a smart contract named StudentData.
+5. Define a structure named Student with roll number, age, name and marks.
+6. Declare a dynamic array to store student records.
+7. Create addStudent() function to add student details into the array using push().
+8. Create getStudent() function to retrieve student details using the index.
+9. Use require() to check whether the given index is valid.
+10. Create getCount() function to display the total number of students.
+11. Define a payable fallback function to handle unmatched calls and Ether.
+12. Compile and deploy the smart contract on the Ethereum test network.
+13. Execute the functions and observe gas consumption and transaction fees.
+14. Stop.
+
+
+
+
+
+
+
+
+
+
+
+
+
+//SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+contract StudentData{
+    struct Student{
+        uint rollNo;
+        uint age;
+        string name;
+        uint marks;
+        
+    }
+
+    Student[] public students;
+
+    //Add Student
+    function addStudent( uint _rollNo, uint _age, string memory _name, uint _marks)public{
+        students.push(Student(_rollNo,_age,_name,_marks));
+    }
+
+    //Get Student
+    function getStudent(uint index)public view returns(uint, string memory, uint){
+        require (index<students.length,"Invalid ID");
+        Student memory s = students[index];
+        return (s.rollNo,s.name, s.marks);
+    }
+
+    //Get Student Count
+    function getCount()public view returns(uint) {
+        return students.length;
+    }
+
+    fallback() external payable {
+        require(msg.value>0,"Ether must be greater than 0");
+    }
+    // receive() external payable {
+    // require(msg.value > 0, "Ether must be greater than 0");
+
+}

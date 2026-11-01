@@ -1,0 +1,85 @@
+3. Theory
+What is a Smart Contract?
+
+A smart contract is a self-executing program stored on a blockchain. It automatically executes when specified conditions are satisfied.
+
+What is Solidity?
+
+Solidity is a high-level programming language used to write smart contracts for the Ethereum blockchain.
+
+What is Ethereum?
+
+Ethereum is a blockchain platform that allows developers to create and deploy smart contracts.
+
+What is Ether?
+
+Ether (ETH) is the cryptocurrency used to perform transactions on the Ethereum network.
+
+
+4. Software Requirements
+1. Remix IDE
+2. MetaMask Wallet
+3. Sepolia Test Network
+4. Internet Connection
+5. Solidity Compiler (0.8.20)
+
+8. Algorithm
+1. Start.
+2. Create a smart contract named BankAccount.
+3. Declare a mapping to store customer balances.
+4. Create a deposit function.
+5. Check whether the deposited amount is greater than zero.
+6. Update the customer's balance.
+7. Create a withdrawal function.
+8. Check whether the withdrawal amount is valid and sufficient balance is available.
+9. Deduct the amount and transfer Ether to the customer.
+10. Create a display balance function.
+11. Return the customer's current balance.
+12. Stop.
+
+
+Follow these steps:
+1. Open Remix IDE.
+2. Create a new file named BankAccount.sol.
+3. Paste the Solidity program.
+4. Open the Solidity Compiler.
+5. Select compiler version 0.8.20.
+6. Click Compile BankAccount.sol.
+7. Open Deploy & Run Transactions.
+8. Select Injected Provider - MetaMask.
+9. Connect MetaMask and select the Sepolia test network.
+10. Deploy the contract and confirm the transaction in MetaMask.
+11. After deployment, use the available contract functions.
+
+
+
+
+
+
+//SPDX-License-Identifier: MIT
+pragma solidity ^0.8.20;
+
+contract BankAccount{
+    //mapping line, D,W,S:
+    mapping(address => uint256) private balances;
+
+    //Deposit Ether:
+    function deposit() public payable{
+        require(msg.value>0, "Deposit must be greater than 0");
+        balances[msg.sender] += msg.value;
+    }
+
+    //Withdraw Ether:
+    function withdraw(uint256 amount) public {
+        require(amount>0, "Amount must be greater than 0");
+        require(balances[msg.sender]>=amount, "Insufficient Balance");
+        balances[msg.sender]-=amount;
+        (bool success,) = payable(msg.sender).call{value:amount}("");
+
+        require(success, "Transfer Fialed");
+    }
+    //Show Balance:
+    function displayBalance() public view returns(uint256){
+        return balances[msg.sender];
+    }
+}

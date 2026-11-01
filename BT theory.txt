@@ -1,0 +1,54 @@
+What is MetaMask?
+MetaMask is a cryptocurrency wallet that allows users to interact with the Ethereum blockchain and other supported blockchain networks.
+
+It is available as a browser extension and a mobile application.
+
+Uses of MetaMask:
+- Create and manage cryptocurrency wallets.
+- Send and receive Ether.
+
+What is Ether (ETH)?
+Ether (ETH) is the native cryptocurrency of the Ethereum blockchain.
+
+What is Gas?
+Gas is the unit used to measure the computational work required to perform an operation on the Ethereum blockchain
+
+
+What is a Transaction Fee?
+A transaction fee is the amount of ETH paid to process a transaction on the Ethereum network.
+
+Formula:
+
+{Transaction Fee} = Gas Used * Effective Gas Price
+
+What is Gwei?
+Gwei is a smaller unit of Ether used to express gas prices.
+
+5. Procedure / Algorithm
+Step 1: Install MetaMask
+1. Open Google Chrome.
+2. Visit the official website: MetaMask official download page.
+3. Select Chrome.
+4. The Chrome Web Store will open.
+5. Click Add to Chrome.
+6. Click Add extension.
+7. MetaMask will be added to the browser.
+8. Click the puzzle icon in Chrome and pin MetaMask for easy access.
+
+
+
+Step 2: Create a wallet for testing
+1. Open the MetaMask extension.
+2. Select Create a new wallet.
+3. Follow the setup instructions.
+4. Choose the Secret Recovery Phrase method if prompted.
+5. Set a strong password for unlocking the extension.
+6. MetaMask will display a Secret Recovery Phrase.
+7. Write it down and store it safely offline.
+8. Complete the confirmation process
+
+What is Sepolia?
+Sepolia is an Ethereum test network used by developers and students to test transactions and smart contracts without spending real ETH.
+
+What is a Smart Contract?
+A Smart Contract is a self-executing digital program stored on a blockchain that automatically performs an action when predefined conditions are satisfied.
