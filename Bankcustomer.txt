@@ -83,3 +83,22 @@ contract BankAccount{
         return balances[msg.sender];
     }
 }
+
+
+
+
+steps 
+0. log in gmail : nikatsagar94@gmail.com 
+    pass: Sagar@123
+
+    metemask pass: Sagar@123
+1. open metamask 
+2. log in remix ide
+3. go to files -> contract creata file bank.sol
+4. copy past above code 
+5. compile code
+6. deploy select evarnaments ->  brauser extension , options -> sefolia testnet metamask
+7. delpy  select bank.sol
+8. kepp evry thing as it is click delpy click confornm in metemask
+9. open terminal  click net to debug expald , chat copy contact addres
+10. go to deploy contact add contact and put contact addres click connect
